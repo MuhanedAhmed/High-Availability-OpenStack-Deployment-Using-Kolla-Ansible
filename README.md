@@ -194,33 +194,37 @@ This section covers the step-by-step creation of the base Rocky Linux VM, clonin
 
 ![Screenshot 12](images/pic12.png)
 
-11.  After reboot, log in as `root` and update the system:
-    ```bash
-    sudo dnf update -y
-    ```
+11.  After reboot, log in as `root` and update the system: 
+   ```bash
+   sudo dnf update -y
+   ```
 
 ![Screenshot 13](images/pic13.png)
 
 12.  Add the `kolla` user to the `wheel` group:
-    ```bash
-    usermod -aG wheel kolla
-    grep wheel /etc/group
-    ```
+   ```bash
+   usermod -aG wheel kolla
+   grep wheel /etc/group
+   ```
 
 ![Screenshot 14](images/pic14.png)
 
 13.  Edit the sudoers file to allow passwordless sudo for the `wheel` group:
-    ```bash
-    visudo
-    ```
-    - Find:
-      ```bash
-      %wheel  ALL=(ALL)       ALL
-      ```
-    - Comment that line and uncomment:
-      ```bash
-      %wheel  ALL=(ALL)       NOPASSWD: ALL
-      ```
+    
+   ```bash
+   visudo
+   ```
+    
+   - Find:
+   
+   ```bash
+   %wheel  ALL=(ALL)       ALL
+   ```
+   
+   - Comment that line and uncomment:
+   ```bash
+   %wheel  ALL=(ALL)       NOPASSWD: ALL
+   ```
 
 ![Screenshot 15](images/pic15.png)
 
